@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Model">
+      <UniqueIdentifier>{b6fce84d-29e4-4ee0-a16e-6fd8ee334a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{bfa53c1c-7bee-4a15-96a6-017d7a5e4011}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{4a6dab4b-6995-4239-b4e7-2f95a3bed003}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{2615e0a4-0935-46a7-9f11-4b23c0f2658f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="FrmMundo11.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Alfredo.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MundoIAvsPCService.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+    <ClCompile Include="Mundo.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Fondo.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Aliado.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="IA.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialogo.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogoService.cpp">
+      <Filter>Service</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FrmMundo11.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Alfredo.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MundoIAvsPCService.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+    <ClInclude Include="Mundo.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Fondo.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Aliado.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="IA.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialogo.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogoService.h">
+      <Filter>Service</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="alfredoPeruano2.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="espada.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="piso1.jpg">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="piso3.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="piso21.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="piso22.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="robotIAxd.png">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
