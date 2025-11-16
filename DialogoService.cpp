@@ -11,7 +11,7 @@ DialogoService::~DialogoService() {
 }
 void DialogoService::inicializarDialogos() {
     //aqui escribimos todos los dialogos pe
-    dialogos.push_back("Holaaa uwu");
+    dialogos.push_back("Hola confía en mi, aqui llegaras mas rapido a tu meta");
 
 }
 string DialogoService::obtenerDialogo(int indice) {

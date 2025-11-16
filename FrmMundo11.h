@@ -137,7 +137,6 @@ namespace Mundo1Kevin {
 
 			if (!dialogoContinua) {
 				lblDialogo->Visible = false;
-
 			}
 		}
 		//colision Aliado
