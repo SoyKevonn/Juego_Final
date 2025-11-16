@@ -19,6 +19,7 @@ MundoIAvsPCService::~MundoIAvsPCService() {
 	aliados.clear();
 	//delete vector de enemigos
 }
+//encuentra este comentario jiji
 void MundoIAvsPCService::cargarSpriteAlfredo(char* ruta, int filas, int columnas) {
 	alfredo->cargarImagen(ruta, filas, columnas);
 }
