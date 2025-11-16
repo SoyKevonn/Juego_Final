@@ -33,6 +33,7 @@ namespace Mundo1Kevin {
 
 			//dibujar al unico aliado q tengo xd
 			service->generarAliado(1);
+			service->generarEnemigos(2);
 			
 		}
 
@@ -139,6 +140,8 @@ namespace Mundo1Kevin {
 				lblDialogo->Visible = false;
 			}
 		}
+		//mover enemigos
+		service->moverEnemigos();
 		//colision Aliado
 		Aliado* aliadoColisionado = service->verificarColisionesAlfredoAliado();
 		if (aliadoColisionado != nullptr) {

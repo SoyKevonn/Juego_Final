@@ -4,6 +4,8 @@
 #include "Mundo.h"
 #include "IA.h"
 #include "DialogoService.h"
+#include "Enemigo.h"
+#include "Guardian.h"
 #include <vector>
 
 using namespace System;
@@ -18,7 +20,7 @@ private:
 	vector<Aliado*> aliados;
 	Aliado* aliadoActual;
 	//falta el vector de los enemigos
-
+	vector<Enemigo*> enemigos;
 	DialogoService* gestorDialogos;
 public:
 	MundoIAvsPCService(int ancho, int alto, int vidasIniciales);
@@ -29,9 +31,12 @@ public:
 
 	//aliado
 	void generarAliado(int cantAliados);
-	//colisiones
+	//colisiones aliados
 	Aliado* verificarColisionesAlfredoAliado();
-
+	//enemigos
+	void generarEnemigos(int cantEnemigos);
+	Enemigo* verificarColisionALfredoEnemigo();
+	void moverEnemigos();
 	//dialogos
 	void iniciarDialogo(Aliado* aliado, int capturados);
 	bool actualizarDialogo(String^& textoDialogo);
