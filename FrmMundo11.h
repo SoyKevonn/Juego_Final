@@ -1,5 +1,6 @@
 #pragma once
 #include "MundoIAvsPCService.h"
+#include <vector>
 
 namespace Mundo1Kevin {
 
@@ -33,8 +34,11 @@ namespace Mundo1Kevin {
 
 			//dibujar al unico aliado q tengo xd
 			service->generarAliado(1);
-			service->generarEnemigos(2);
 			
+			//despues descomentar esto
+			//service->generarEnemigos(2);
+			
+			registrarZonasRestringidas();
 		}
 
 	protected:
@@ -63,6 +67,10 @@ namespace Mundo1Kevin {
 		MundoIAvsPCService* service;
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ lblDialogo;
+	private: System::Windows::Forms::Panel^ pnlNoPasar3;
+
+	private: System::Windows::Forms::Panel^ pnlNoPasar2;
+	private: System::Windows::Forms::Panel^ pnlNoPasar1;
 
 
 		   Direccion teclaPresionadaAlfredo;
@@ -77,8 +85,11 @@ namespace Mundo1Kevin {
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FrmMundo11::typeid));
 			this->pnlDibujo = (gcnew System::Windows::Forms::Panel());
-			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->lblDialogo = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->pnlNoPasar1 = (gcnew System::Windows::Forms::Panel());
+			this->pnlNoPasar2 = (gcnew System::Windows::Forms::Panel());
+			this->pnlNoPasar3 = (gcnew System::Windows::Forms::Panel());
 			this->pnlDibujo->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -86,15 +97,14 @@ namespace Mundo1Kevin {
 			// 
 			this->pnlDibujo->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pnlDibujo.BackgroundImage")));
 			this->pnlDibujo->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pnlDibujo->Controls->Add(this->pnlNoPasar3);
+			this->pnlDibujo->Controls->Add(this->pnlNoPasar2);
+			this->pnlDibujo->Controls->Add(this->pnlNoPasar1);
 			this->pnlDibujo->Controls->Add(this->lblDialogo);
 			this->pnlDibujo->Location = System::Drawing::Point(1, 3);
 			this->pnlDibujo->Name = L"pnlDibujo";
 			this->pnlDibujo->Size = System::Drawing::Size(1026, 1046);
 			this->pnlDibujo->TabIndex = 0;
-			// 
-			// timer1
-			// 
-			this->timer1->Tick += gcnew System::EventHandler(this, &FrmMundo11::timer1_Tick);
 			// 
 			// lblDialogo
 			// 
@@ -108,6 +118,34 @@ namespace Mundo1Kevin {
 			this->lblDialogo->TabIndex = 5;
 			this->lblDialogo->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->lblDialogo->Visible = false;
+			// 
+			// timer1
+			// 
+			this->timer1->Tick += gcnew System::EventHandler(this, &FrmMundo11::timer1_Tick);
+			// 
+			// pnlNoPasar1
+			// 
+			this->pnlNoPasar1->Location = System::Drawing::Point(4, 167);
+			this->pnlNoPasar1->Name = L"pnlNoPasar1";
+			this->pnlNoPasar1->Size = System::Drawing::Size(125, 36);
+			this->pnlNoPasar1->TabIndex = 6;
+			this->pnlNoPasar1->Visible = false;
+			// 
+			// pnlNoPasar2
+			// 
+			this->pnlNoPasar2->Location = System::Drawing::Point(227, 167);
+			this->pnlNoPasar2->Name = L"pnlNoPasar2";
+			this->pnlNoPasar2->Size = System::Drawing::Size(546, 36);
+			this->pnlNoPasar2->TabIndex = 7;
+			this->pnlNoPasar2->Visible = false;
+			// 
+			// pnlNoPasar3
+			// 
+			this->pnlNoPasar3->Location = System::Drawing::Point(883, 167);
+			this->pnlNoPasar3->Name = L"pnlNoPasar3";
+			this->pnlNoPasar3->Size = System::Drawing::Size(136, 36);
+			this->pnlNoPasar3->TabIndex = 8;
+			this->pnlNoPasar3->Visible = false;
 			// 
 			// FrmMundo11
 			// 
@@ -141,7 +179,8 @@ namespace Mundo1Kevin {
 			}
 		}
 		//mover enemigos
-		service->moverEnemigos();
+		//despues descomentar esto
+		//service->moverEnemigos();
 		//colision Aliado
 		Aliado* aliadoColisionado = service->verificarColisionesAlfredoAliado();
 		if (aliadoColisionado != nullptr) {
@@ -186,7 +225,15 @@ namespace Mundo1Kevin {
 			teclaPresionadaAlfredo = Direccion::Ninguno;
 		}
 	}
-
+	private: void registrarZonasRestringidas() {
+		//manualmente :v
+		Rectangle zonaNo1 = Rectangle(4, 167, pnlNoPasar1->Width, pnlNoPasar1->Height);
+		service->registrarZonaRestringida(zonaNo1);
+		Rectangle zonaNo2 = Rectangle(227, 167, pnlNoPasar2->Width, pnlNoPasar2->Height);
+		service->registrarZonaRestringida(zonaNo2);
+		Rectangle zonaNo3 = Rectangle(883, 167, pnlNoPasar3->Width, pnlNoPasar3->Height);
+		service->registrarZonaRestringida(zonaNo3);
+    }
 
 
 };

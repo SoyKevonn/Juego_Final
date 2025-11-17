@@ -24,7 +24,21 @@ void MundoIAvsPCService::cargarSpriteAlfredo(char* ruta, int filas, int columnas
 	alfredo->cargarImagen(ruta, filas, columnas);
 }
 void MundoIAvsPCService::moverAlfredo(Direccion tecla) {
+	if (tecla == Direccion::Ninguno) return;
+
+	int posicionAnteriorX = alfredo->getX();
+	int posicionAnteriorY = alfredo->getY();
+
 	alfredo->mover(tecla, anchoPanel, altoPanel);
+
+	Rectangle rectAlfredo = alfredo->getRectangle();
+	for (int i = 0; i < zonasRestringidas.size(); i++) {
+		if (rectAlfredo.IntersectsWith(zonasRestringidas[i])) {
+			alfredo->setX(posicionAnteriorX);
+			alfredo->setY(posicionAnteriorY);
+			break;
+		}
+	}
 }
 void MundoIAvsPCService::generarAliado(int cantAliados) {
 	char rutaIA[] = "robotIAxd.png";
@@ -115,6 +129,7 @@ Enemigo* MundoIAvsPCService::verificarColisionALfredoEnemigo() {
 	}
 	return nullptr;
 }
+
 void MundoIAvsPCService::dibujarTodo(Graphics^ canvas) {
 	//dibujar fondo primero
 	fondo->dibujar(canvas);
@@ -136,4 +151,8 @@ void MundoIAvsPCService::dibujarTodo(Graphics^ canvas) {
 		}
 	}
 
+}
+//zonas bloqueadas
+void MundoIAvsPCService::registrarZonaRestringida(Rectangle zona) {
+	zonasRestringidas.push_back(zona);
 }

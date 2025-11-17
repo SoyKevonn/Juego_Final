@@ -22,6 +22,7 @@ private:
 	//falta el vector de los enemigos
 	vector<Enemigo*> enemigos;
 	DialogoService* gestorDialogos;
+	vector<Rectangle> zonasRestringidas;
 public:
 	MundoIAvsPCService(int ancho, int alto, int vidasIniciales);
 	~MundoIAvsPCService();
@@ -42,5 +43,8 @@ public:
 	bool actualizarDialogo(String^& textoDialogo);
 
 	void dibujarTodo(Graphics^ canvas)override;
+
+	//colisiones para parar
+	void registrarZonaRestringida(Rectangle zona);
 };
 
